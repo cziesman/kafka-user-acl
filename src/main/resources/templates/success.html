@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<span th:replace="~{fragment-head :: common-head(title='Success Page')}"></span>
+
+<body>
+<div class="container">
+    <h1 id="title">Message was sent!</h1>
+    <div class="width-100">
+        <div class="card">
+            <div class="card-body">
+                <div class="width-100">
+                    <form action="#" th:action="@{/demo/send}" th:object="${result}" method="post">
+                        <div class="form-group">
+                            <label for="status" class="col-form-label">Status Code</label>
+                            <input type="text" th:field="*{status}" class="form-control" id="status"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="col-form-label">Message</label>
+                            <input type="text" th:field="*{message}" class="form-control" id="message"/>
+                        </div>
+                        <div class="form-group float-right">
+                            <a th:href="@{/demo/send}" class="btn btn-primary">Go Back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<span th:replace="~{fragment-javascript :: common}"></span>
+
+</html>

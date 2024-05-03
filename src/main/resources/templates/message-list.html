@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<span th:replace="~{fragment-head :: common-head-datatables(title='Messages')}"></span>
+
+<body>
+<div class="container">
+    <h3 id="title">Messages</h3>
+    <div class="width-100">
+        <div class="card">
+            <div class="card-body">
+                <div class="width-100">
+                    <table class="table table-striped table-bordered" id="message" width="100%">
+                        <thead>
+                        <tr>
+                            <th width="25%">Time</th>
+                            <th width="40%">Text</th>
+                            <th width="35%">Topic</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span th:replace="~{fragment-javascript :: common-datatables}"></span>
+<script type="text/javascript">
+$(document).ready(function() {
+    var table = $('#message').DataTable({
+        "info": false,
+		"order" : [
+		    [0, "desc"],
+		    [2, "asc"]
+		],
+        "ordering": false,
+        "filter" : false,
+        "paging" : false,
+        "processing" : false,
+        "serverSide" : true,
+        "ajax": '/msg/list-json',
+        'columns' : [
+            {"data" : "timestamp"},
+            {"data" : "text"},
+            {"data" : "topic"}
+        ]
+    });
+
+    setInterval(function() {
+        table.ajax.reload(null, false);
+    }, 1000); // reload the table every second
+});
+</script>
+</body>
+</html>

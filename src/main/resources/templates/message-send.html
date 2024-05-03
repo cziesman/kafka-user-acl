@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<span th:replace="~{fragment-head :: common-head(title='Send a Message')}"></span>
+
+<body>
+<div class="container">
+    <h3 id="title">Messages</h3>
+    <div class="width-100">
+        <div class="card">
+            <div class="card-body">
+                <div class="width-100">
+                    <form action="#" th:action="@{/demo/send}" th:object="${messageForm}" method="post">
+                        <div class="form-group">
+                            <label for="message" class="col-form-label">Message</label>
+                            <input type="text" th:field="*{message}" class="form-control" id="message"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-form-label">User Name</label>
+                            <select class="selectpicker form-control" id="username" name="username">
+                                <option>my-user-0</option>
+                                <option>my-user-1</option>
+                                <option>my-user-2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="topic" class="col-form-label">Topic</label>
+                            <select class="selectpicker form-control" id="topic" name="topic">
+                                <option>my-topic-0</option>
+                                <option>my-topic-1</option>
+                                <option>my-topic-2</option>
+                            </select>
+                        </div>
+                        <div class="form-group float-right">
+                            <input type="submit" class="btn btn-primary" value="Send"/>
+                            <a th:href="@{/demo/send}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span th:replace="~{fragment-javascript :: common}"></span>
+</body>
+</html>

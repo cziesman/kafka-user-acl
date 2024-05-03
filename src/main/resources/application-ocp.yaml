@@ -1,0 +1,7 @@
+kafka:
+  bootstrap-servers: my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9093
+  truststore:
+    location: /tmp/certs/truststore.p12
+
+server:
+  port: 8080

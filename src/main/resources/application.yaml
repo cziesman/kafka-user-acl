@@ -1,0 +1,42 @@
+kafka-server: my-cluster-kafka-bootstrap-kafka.apps.cluster-4npj5.dynamic.redhatworkshops.io:443
+
+kafka:
+  bootstrap-server: my-cluster-kafka-bootstrap-kafka.apps.cluster-4npj5.dynamic.redhatworkshops.io:443
+  topic0:
+    name: my-topic-0
+  topic1:
+    name: my-topic-1
+  truststore:
+    location: src/main/resources/certs/truststore.p12
+    password: MouP8C5Ws3zr
+    type: PKCS12
+  user0:
+    password: BHCUgbbnitSTAp0oqujQjlCgyuvsd0lY
+    username: my-user-0
+  user1:
+    password: dN6mp9QHA3yFysL4EyB1SHwCoynuetHi
+    username: my-user-1
+
+management:
+  endpoint:
+    env:
+      show-values: ALWAYS
+    configprops:
+      show-values: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+  port: 9090
+
+logging:
+  level:
+    root: INFO
+
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M:%line - %msg%n"
