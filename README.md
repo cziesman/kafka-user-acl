@@ -286,11 +286,7 @@ The demo client application is deployed using the following command:
 
 This command will compile the code, build a JAR file, and run the JAR file.
 
-Once the application is running, it can be tested using a command similar to the following:
-
-    curl http://localhost:9090/msg/send?message=hello
-
-If the message is sent, the response should be `Sent [hello]`.
+Once the application is running, it can be tested using the provided web page.
 
 ### Openshift Deployment
 
@@ -302,11 +298,4 @@ The demo client application is deployed using the following command:
 
 This command will run an S2I build on Openshift to compile the code, build a JAR file, create an image, push the image to Openshift, and deploy the image.
 
-Once the application is running, it can be tested using a command similar to the following:
-
-    curl http://scram-sha-demo-kafka-client.apps.cluster-jccqj.dynamic.redhatworkshops.io/msg/send?message=hello
-
-The actual hostname can be retrieved from the Openshift route for the client application.
-
-If the message is sent, the response should be `Sent [hello]`.
-
+Once the application is running, it can be tested using the provided web page.
